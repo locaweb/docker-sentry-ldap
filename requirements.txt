@@ -1,0 +1,3 @@
+python-decouple==3.0
+sentry-ldap-auth
+django-auth-ldap <=1.2.13,>=1.2.5
