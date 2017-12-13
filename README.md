@@ -29,6 +29,7 @@ LDAP_REQUIRE_GROUP              | AUTH_LDAP_REQUIRE_GROUP                       
 LDAP_DENY_GROUP                 | AUTH_LDAP_DENY_GROUP                          |      | None                                                  |
 LDAP_MAP_FULL_NAME              | AUTH_LDAP_USER_ATTR_MAP['first_name']         |      | ``cn``                                                | Please make sure that this property have the full name of the user 
 LDAP_MAP_MAIL                   | AUTH_LDAP_USER_ATTR_MAP['email']              |      | ``mail``                                              |
+LDAP_SENTRY_USER_FIELD          |                                               |      | ``mail``                                              | Which LDAP field will be used to create the Sentry username
 LDAP_GROUP_ACTIVE               | AUTH_LDAP_USER_FLAGS_BY_GROUP['is_active']    |      | ''                                                    |
 LDAP_GROUP_STAFF                | AUTH_LDAP_USER_FLAGS_BY_GROUP['is_staff']     |      | ''                                                    |
 LDAP_GROUP_SUPERUSER            | AUTH_LDAP_USER_FLAGS_BY_GROUP['is_superuser'] |      | ''                                                    |
