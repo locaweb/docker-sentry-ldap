@@ -6,6 +6,31 @@ The work here is based on [slafs sentry repo](https://github.com/slafs/sentry-do
 
 I guess that [slafs](https://github.com/slafs) stopped his word after Sentry release their oficial Docker image, but for some reason, they image do not support LDAP stuff so we merged both and make it work.
 
+## Example environment configuration
+
+Environment variable name | Value
+--------------------------------|-------------------------
+LDAP_BIND_DN                    | uid=sentry,ou=Systems,dc=server,dc=com
+LDAP_BIND_PASSWORD              | feijoada
+LDAP_GROUP_TYPE                 | groupOfUniqueNames
+LDAP_MAP_FIRST_NAME             | cn
+LDAP_SERVER                     | ldaps://ldap.server.com:636
+LDAP_USER_DN                    | ou=Employees,dc=company,dc=com
+LDAP_USER_FILTER                | =(&(objectClass=inetOrgPerson)(mail=%(user)s))
+SENTRY_DB_NAME                  | sentry
+SENTRY_DB_PASSWORD              | dbpasswd 
+SENTRY_DB_USER                  | sentry
+SENTRY_EMAIL_HOST               | email.relay.com
+SENTRY_EMAIL_PORT               | 25
+SENTRY_MEMCACHED_HOST           | memcached_farm.server.com
+SENTRY_MEMCACHED_PORT           | 11211
+SENTRY_POSTGRES_HOST            | postgres.server.com 
+SENTRY_REDIS_HOST               | redis.server.com 
+SENTRY_REDIS_PORT               | 11042
+SENTRY_SECRET_KEY               | secret_sentry_key_42 
+SENTRY_SERVER_EMAIL             | noreply@server.com
+SENTRY_USE_LDAP                 | True
+
 ## Available environment variables
 
 Refer to [sentry documentation](https://docs.getsentry.com/server/config/),
