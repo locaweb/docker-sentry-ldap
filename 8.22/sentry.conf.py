@@ -356,7 +356,6 @@ if SENTRY_USE_LDAP:
         'LDAP_DEFAULT_SENTRY_ORGANIZATION',
         default='Locaweb')
     AUTH_LDAP_SENTRY_ORGANIZATION_ROLE_TYPE = 'member'
-    AUTH_LDAP_FIND_GROUP_PERMS = False
     AUTH_LDAP_SENTRY_SUBSCRIBE_BY_DEFAULT = False
 
     ldap_is_active    = config('LDAP_GROUP_ACTIVE', default='')
