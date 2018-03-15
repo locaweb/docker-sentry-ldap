@@ -315,7 +315,7 @@ SENTRY_USE_LDAP = config('SENTRY_USE_LDAP', default=False, cast=bool)
 
 if SENTRY_USE_LDAP:
     import ldap
-    from django_auth_ldap.config import LDAPSearch, GroupOfUniqueNamesType, PosixGroupType, NestedGroupOfNamesType
+    from django_auth_ldap.config import LDAPSearch, GroupOfUniqueNamesType, GroupOfNamesType, PosixGroupType, NestedGroupOfNamesType
 
     AUTH_LDAP_SERVER_URI = config('LDAP_SERVER', default='ldap://localhost')
 
@@ -336,6 +336,8 @@ if SENTRY_USE_LDAP:
 
     if config('LDAP_GROUP_TYPE', default='') == 'groupOfUniqueNames':
         AUTH_LDAP_GROUP_TYPE = GroupOfUniqueNamesType()
+    elif config('LDAP_GROUP_TYPE', default='') == 'groupOfNames':
+        AUTH_LDAP_GROUP_TYPE = GroupOfNamesType()
     elif config('LDAP_GROUP_TYPE', default='') == 'posixGroup':
         AUTH_LDAP_GROUP_TYPE = PosixGroupType()
     elif config('LDAP_GROUP_TYPE', default='') == 'nestedGroupOfNames':
@@ -350,9 +352,10 @@ if SENTRY_USE_LDAP:
         'email': config('LDAP_MAP_MAIL', default='mail')
     }
 
-    AUTH_LDAP_DEFAULT_SENTRY_ORGANIZATION = 'Locaweb'
+    AUTH_LDAP_DEFAULT_SENTRY_ORGANIZATION = config(
+        'LDAP_DEFAULT_SENTRY_ORGANIZATION',
+        default='Locaweb')
     AUTH_LDAP_SENTRY_ORGANIZATION_ROLE_TYPE = 'member'
-    AUTH_LDAP_FIND_GROUP_PERMS = False
     AUTH_LDAP_SENTRY_SUBSCRIBE_BY_DEFAULT = False
 
     ldap_is_active    = config('LDAP_GROUP_ACTIVE', default='')
