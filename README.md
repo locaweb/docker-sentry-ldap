@@ -2,9 +2,17 @@
 
 ## History
 
-The work here is based on [slafs sentry repo](https://github.com/slafs/sentry-docker) and [banno](https://github.com/Banno/getsentry-ldap-auth) this `Dockerfile` is an extension of the [sentry oficial docker image](https://hub.docker.com/_/sentry/) so, any `ENVIRONMENT` documented there you can use here.
+The work here is based on [slafs sentry repo](https://github.com/slafs/sentry-docker) and [banno](https://github.com/Banno/getsentry-ldap-auth) this `Dockerfile` is an extension of the [sentry official docker image](https://hub.docker.com/_/sentry/) so, any `ENVIRONMENT` documented there you can use here.
 
-I guess that [slafs](https://github.com/slafs) stopped his word after Sentry release their oficial Docker image, but for some reason, they image do not support LDAP stuff so we merged both and make it work.
+I guess that [slafs](https://github.com/slafs) stopped his word after Sentry releases their official Docker image, but for some reason, the image do not support LDAP stuff so we merged both and make it work.
+
+Update 2019-08: Sentry released the 9 version with better customization support from the `-ondemand` we are now using this image as a source for ours. 
+
+### Notes on version 9.1
+
+Unfortunately `sentry run web` don't support the parameter `-b 0:$PORT0` where $PORT0 is the variable that your docker orchestrator fill with the currently available port to map, the official conf only support the `9000` port.
+
+So we create a env var called `$PORT0` that you can pass your alternative port, the default is `9000` but if you use Kubernetes or other orchestrators you probably need to use `$PORT0` env 
 
 ## Example environment configuration
 
