@@ -345,7 +345,7 @@ if SENTRY_USE_LDAP:
     AUTH_LDAP_DENY_GROUP = config('LDAP_DENY_GROUP', default=None)
 
     AUTH_LDAP_USER_ATTR_MAP = {
-        'username': config('LDAP_SENTRY_USER_FIELD', default='mail'),
+        'username': config('LDAP_SENTRY_USER_FIELD', default='user'),
         'name': config('LDAP_MAP_FULL_NAME', default='cn'),
         'email': config('LDAP_MAP_MAIL', default='mail')
     }
