@@ -76,6 +76,6 @@ LDAP_LOGLEVEL                    |                                              
 ## Build
 
 ```
-$ docker build -t "$DOCKER_REGISTRY_URL/sentry/sentry:8.22.0" .
+$ docker build -t "$DOCKER_REGISTRY_URL/sentry/sentry:9.1" .
 ```
 
