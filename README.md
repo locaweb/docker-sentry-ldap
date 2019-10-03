@@ -73,6 +73,23 @@ LDAP_CACHE_GROUPS                | AUTH_LDAP_CACHE_GROUPS                       
 LDAP_GROUP_CACHE_TIMEOUT         | AUTH_LDAP_GROUP_CACHE_TIMEOUT                 | int  | 3600                                                  |
 LDAP_LOGLEVEL                    |                                               |      | ``DEBUG``                                             | django_auth_ldap logger level (other values: NOTSET (to disable), INFO, WARNING, ERROR or CRITICAL)
 
+
+## Health-check
+
+### Web
+
+Just check the localhost:9000/_health/ of your container
+
+### Workers
+
+Use celery ping command:
+
+```
+$ sentry exec -c 'import celery, os; print(celery.task.control.inspect().ping().get("celery@{}".format(os.environ["HOSTNAME"]))["ok"])'
+```
+
+This will check if the celery daemon that is running on that host, is ok.
+
 ## Build
 
 ```
