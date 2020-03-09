@@ -1,4 +1,4 @@
 # Add plugins here
 python-decouple==3.0
-sentry-ldap-auth
+sentry-ldap-auth <=2.8.1
 django-auth-ldap <=1.2.17
